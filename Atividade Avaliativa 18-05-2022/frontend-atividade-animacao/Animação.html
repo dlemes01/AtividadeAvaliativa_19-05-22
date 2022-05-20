@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+
+    <!-- J Query -->
+    <!-- jQuery compressed for production -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#naruto-correndo").click(function () {
+
+                $("#naruto-correndo").animate({ height: '300px' });
+                $("#naruto-correndo").animate({ left: '+50%' });
+            });
+            $("#circulo").click(function () {
+                $("#circulo").animate({ left: '+50%' });
+            });
+            $("#quadrado").click(function () {
+                $("#quadrado").animate({ height: '400px', width: '400px' });
+            });
+        });
+
+    </script>
+
+    <style>
+        #quadrado {
+            width: 150px;
+            height: 150px;
+            background: #0f0;
+            left: 0;
+            bottom: 0;
+            display: block;
+            /*border: 100px solid;
+             As 4 bordas sólidas com 25px de espessura */
+            /*border-color: #f00  #00f #fc0;
+             cores: topo, direita, inferior, esquerda
+             */
+        }
+
+        #circulo {
+            width: 300px;
+            height: 300px;
+            shape-outside: circle();
+            clip-path: circle();
+            background: blue;
+            left: 0;
+            bottom: 0;
+            display: block;
+            position: relative;
+        }
+
+        #naruto-correndo {
+            height: 100px;
+            left: 0;
+            bottom: 0;
+            display: block;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <div id="principal">
+            <div id="quadrado"></div>
+            <div id="circulo"></div>
+            <div>
+                <img src="naruto correndo.jpg" id="naruto-correndo">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

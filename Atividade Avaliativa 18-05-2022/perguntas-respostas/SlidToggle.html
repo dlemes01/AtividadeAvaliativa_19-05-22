@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+	$(".ccxc").click(function () {
+		$(this).children('#panel').slideToggle('slow');
+    })
+});
+
+</script>
+<style>
+#panel, #flip {
+	padding: 5px;
+	text-align: center;
+	background-color: #e5eecc;
+	border: solid 1px #c3c3c3;
+}
+
+#panel {
+	padding: 50px;
+	display: none;
+}
+.center {
+	display: flex;
+	justify-content: center;
+}
+</style>
+</head>
+<body>
+
+	<div class="ccxc">
+		<div id="flip">De onde é a invenção do chuveiro elétrico?</div>
+		<div id="panel">Brasil</div>
+		<div class="center"><button type="button" onclick="Evento()">Clique aqui</button>
+			</div>
+	</div>
+	<div class="ccxc">
+		<div id="flip">Quais o menor e o maior país do mundo?</div>
+		<div id="panel">Vaticano e Rússia</div>
+	</div>
+	<div class="ccxc">
+		<div id="flip">Qual o número mínimo de jogadores numa partida de futebol?</div>
+		<div id="panel">7</div>
+	</div>
+	<div class="ccxc">
+		<div id="flip">Qual o maior animal terrestre?</div>
+		<div id="panel">Elefante africano</div>
+	</div>
+	<div class="ccxc">
+		<div id="flip">Qual o nome do presidente do Brasil que ficou conhecido como Jango?</div>
+		<div id="panel"> João Goulart</div>
+	</div>
+	<div class="ccxc">
+		<div id="flip">Quantas casas decimais tem o número pi?</div>
+		<div id="panel">Infinitas</div>
+	</div>
+
+</body>
+</html>
+
+
+

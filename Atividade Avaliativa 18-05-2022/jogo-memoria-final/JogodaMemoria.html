@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+        integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            var clique = 0;
+            var pontuacao = 0;
+            const personagens = [];
+            const cartas = [];
+            const validacao = [];
+
+            $(".card-body").click(function () {
+
+                const colecao = $(this).children();
+
+                var carta = colecao[0].getElementsByClassName('img-carta');
+                var resultado = colecao[1].getElementsByClassName('img-resultado');
+
+                $(carta).hide();
+                $(resultado).fadeIn();
+
+                clique += 1;
+                personagens.push(resultado);
+                cartas.push(carta);
+
+                if (clique == 2) {
+
+                    var primeiracarta = $(personagens[0]).attr("alt");
+                    var segundacarta = $(personagens[1]).attr("alt");
+
+                    if (primeiracarta == segundacarta) {
+                        if (validacao.indexOf(primeiracarta) == -1) {
+                            validacao.push(primeiracarta);
+                            pontuacao = pontuacao + 1;
+                        }
+                    } else {
+                        $(personagens[0]).fadeOut();
+                        $(personagens[1]).fadeOut();
+                        $(cartas[0]).show();
+                        $(cartas[1]).show();
+                    }
+                    clique = 0;
+                    personagens.length = 0;
+                    cartas.length = 0;
+                }
+
+                if (pontuacao == 4) {
+                    alert("Voce ganhou!");
+                    pontuacao = 0;
+
+                    $(".img-resultado").hide(1000);
+                    $(".img-carta").show(2000);
+                }
+
+            });
+        });
+
+    </script>
+
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .img-resultado {
+            display: none;
+        }
+
+        .carta {}
+
+        .img-carta {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container bg-light">
+
+        <div class="row">
+
+            <div class="col-md-3 ">
+                <div class="card-body border bg-light" id="naruto-1">
+                    <div class="carta" alt="simbolo-folha" id="folha-1">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta" id="teste">
+                    </div>
+                    <div alt="naruto">
+                        <img src="img/icons8-naruto-480.png" class="img-fluid img-resultado" id="img-naruto-1"
+                            alt="naruto">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-3 ">
+                <div class="card-body border" id="sasuke-1">
+                    <div class="carta" alt="simbolo-folha">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta">
+                    </div>
+                    <div alt="sasuke">
+                        <img src="img/icons8-sasuke-uchiha-480.png" class="img-fluid img-resultado" id="img-sasuke-1"
+                            alt="sasuke">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card-body border" id="sasuke-2">
+                    <div class="carta" alt="simbolo-folha">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta">
+                    </div>
+                    <div alt="sasuke">
+                        <img src="img/icons8-sasuke-uchiha-480.png" class="img-fluid img-resultado" id="img-sasuke-2"
+                            alt="sasuke">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 ">
+                <div class="card-body border" id="tanjiro-1">
+
+                    <div class="carta" alt="simbolo-folha">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta">
+                    </div>
+                    <div alt="tanjiro">
+                        <img src="img/icons8-tanjiro-kamado-480.svg" class="img-fluid img-resultado" id="img-tanjiro-1"
+                            alt="tanjiro">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card-body border" id="tanjiro-2">
+                    <div class="carta" alt="simbolo-folha">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta">
+                    </div>
+                    <div alt="tanjiro">
+                        <img src="img/icons8-tanjiro-kamado-480.svg" class="img-fluid img-resultado" id="img-tanjiro-2"
+                            alt="tanjiro">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <div class="card-body border" id="kakashi-1">
+                    <div class="carta" alt="simbolo-folha">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta">
+                    </div>
+                    <div alt="kakashi">
+                        <img src="img/icons8-kakashi-hatake-480.png" class="img-fluid img-resultado" id="img-kakashi-1"
+                            alt="kakashi">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <div class="card-body border" id="naruto-2">
+                    <div class="carta" alt="simbolo-folha">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta">
+                    </div>
+                    <div alt="tanjiro">
+                        <img src="img/icons8-naruto-480.png" class="img-fluid img-resultado" id="img-naruto-2"
+                            alt="naruto">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <div class="card-body border" id="kakashi-2">
+                    <div class="carta" alt="simbolo-folha">
+                        <img src="img/icons8-naruto-sign-480.png" class="img-fluid img-carta">
+                    </div>
+                    <div alt="kakashi">
+                        <img src="img/icons8-kakashi-hatake-480.png" class="img-fluid img-resultado" id="img-kakashi-2"
+                            alt="kakashi">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
